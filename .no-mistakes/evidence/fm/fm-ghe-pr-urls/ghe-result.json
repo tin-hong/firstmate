@@ -1,0 +1,7 @@
+{
+  "registration": "pass",
+  "poll": "pass",
+  "notification": "pass",
+  "merge_preflight_refusal": "pass",
+  "actual_merge": "not attempted; read-only authorization"
+}

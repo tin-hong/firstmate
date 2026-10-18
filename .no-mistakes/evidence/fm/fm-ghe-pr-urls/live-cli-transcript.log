@@ -1,0 +1,105 @@
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://leadsonline.ghe.com/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com.evil/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://leadsonline.ghe.com.evil/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://github.com.evil/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://github.com.evil/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://other.ghe.com/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://other.ghe.com/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com/Org/repo/pull/0
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://leadsonline.ghe.com/Org/repo/pull/0
+error: invalid PR merge request
+exit=2
+
+All rejected requests left the isolated state directory empty.
+
+$ bin/fm-pr-check.sh task-a https://github.com/Org/repo/pull/7
+error: task metadata is unavailable
+exit=1
+
+$ bin/fm-pr-merge.sh task-a https://github.com/Org/repo/pull/7
+error: task metadata is unavailable
+exit=1
+
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com.evil/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://leadsonline.ghe.com.evil/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://github.com.evil/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://github.com.evil/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://other.ghe.com/Org/repo/pull/7
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://other.ghe.com/Org/repo/pull/7
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com/Org/repo/pull/0
+error: invalid PR check request
+exit=2
+
+$ bin/fm-pr-merge.sh task-a https://leadsonline.ghe.com/Org/repo/pull/0
+error: invalid PR merge request
+exit=2
+
+$ bin/fm-pr-check.sh task-a https://leadsonline.ghe.com/Org/repo/pull/7
+error: task metadata is unavailable
+exit=1
+
+$ .test-ghe-gate/live/code/bin/fm-pr-state.sh https://leadsonline.ghe.com/Org/repo/pull/7
+HTTP 401: Must authenticate to access this API. (https://api.leadsonline.ghe.com/graphql)
+Try authenticating with:  gh auth login -h leadsonline.ghe.com
+fm-pr-state: could not read https://leadsonline.ghe.com/Org/repo/pull/7
+exit=2
+
+$ .test-ghe-gate/live/code/bin/fm-pr-reviewers.sh https://leadsonline.ghe.com/Org/repo/pull/7
+gh: Must authenticate to access this API. (HTTP 401)
+fm-pr-reviewers: could not read https://leadsonline.ghe.com/Org/repo/pull/7
+exit=2
+
+$ gh auth status --hostname leadsonline.ghe.com
+You are not logged into any GitHub hosts. To log in, run: gh auth login
+exit=1
+
+$ bin/fm-pr-poll.sh --validated github https://leadsonline.ghe.com/Org/repo/pull/7 leadsonline.ghe.com Org/repo 7
+exit=0
+
+An unauthenticated Enterprise lookup produced no merged notification.

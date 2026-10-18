@@ -1,0 +1,6 @@
+Command: bash -c . bin/fm-pr-lib.sh; . bin/fm-wake-lib.sh; . bin/fm-parent-channel-lib.sh; . bin/fm-merge-outcome-lib.sh; fm_merge_outcome_report "$FM_HOME" "$FM_STATE_OVERRIDE" scratch-ghe-505 https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 poll
+Exit: 0
+STDOUT:
+
+STDERR:
+

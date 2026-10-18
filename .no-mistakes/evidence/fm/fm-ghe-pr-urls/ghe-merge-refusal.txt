@@ -1,0 +1,17 @@
+Command: bash -x bin/fm-pr-merge.sh scratch-ghe-505 https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+Exit: 1
+STDOUT:
+armed: state/scratch-ghe-505.check.sh
+
+STDERR:
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+error: refusing to merge https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+  - state is "MERGED", not open
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+Executed forge commands and host export (bash execution trace):
++ GH_HOST=leadsonline.ghe.com
+++ gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+++ gh api repos/LeadsOnline/nighthawk-tf/branches/master
+++ gh api --paginate repos/LeadsOnline/nighthawk-tf/rules/branches/master

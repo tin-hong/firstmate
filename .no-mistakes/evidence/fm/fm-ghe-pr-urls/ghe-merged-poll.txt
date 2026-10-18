@@ -1,0 +1,30 @@
+Command: bash -x /home/tin/.no-mistakes/worktrees/e8951d61b05b/01M57VPA183NS321E80CVYR61Z/.test-ghe-readonly/home/state/scratch-ghe-505.check.sh
+Exit: 0
+STDOUT:
+merged
+
+STDERR:
++ case "$number" in
++ case "$number" in
++ case "$provider" in
++ '[' 19 -ge 1 ']'
++ '[' 19 -le 253 ']'
++ case "$host" in
++ owner=LeadsOnline
++ repo=nighthawk-tf
++ '[' 11 -ge 1 ']'
++ '[' 11 -le 39 ']'
++ case "$owner" in
++ '[' 12 -ge 1 ']'
++ '[' 12 -le 100 ']'
++ case "$repo" in
++ '[' https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 = https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 ']'
+++ GH_HOST=leadsonline.ghe.com
+++ gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json state -q .state
++ state=MERGED
++ '[' MERGED = MERGED ']'
++ printf '%s\n' merged
++ exit 0
+
+Executed forge commands and host export (bash execution trace):
+

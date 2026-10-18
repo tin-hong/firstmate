@@ -1,0 +1,12 @@
+{
+  "verdict": "passed",
+  "findings": [
+    {
+      "id": "enterprise-readonly-validation",
+      "severity": "info",
+      "action": "no-op",
+      "description": "Three selected scenarios passed live read-only against real Enterprise PR 505. Actual Enterprise merging remains untested because it requires writing to a real PR."
+    }
+  ],
+  "evidence": "/home/tin/.no-mistakes/evidence/01M57VPA183NS321E80CVYR61Z/enterprise-pr505-readonly.log"
+}

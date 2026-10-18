@@ -1,0 +1,9 @@
+.wake-queue:
+1792341825	1	check	merged-scratch-ghe-505-https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505	check: merge landed: scratch-ghe-505 https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+
+merge-notified:
+fm-pr-poll-merge-notified-v1
+github
+leadsonline.ghe.com
+LeadsOnline/nighthawk-tf
+505

@@ -1,0 +1,114 @@
+=== Scenario 1: live registration ===
+exit=0
+stdout:
+armed: state/ghe-live-505.check.sh
+
+stderr:
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+fm-contributions: data directory unavailable
+contributions: observation not armed; coverage is unconfirmed
+
+Recorded metadata:
+worktree=/home/tin/.no-mistakes/worktrees/e8951d61b05b/01M57VPA183NS321E80CVYR61Z/.test-ghe-live-8z9yk_v7/wt
+project=/home/tin/.no-mistakes/worktrees/e8951d61b05b/01M57VPA183NS321E80CVYR61Z/.test-ghe-live-8z9yk_v7/wt
+kind=ship
+mode=no-mistakes
+pr=https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+pr_head=64604370df0ddb1379b87ccfb71ba82a85dd7e2c
+
+pr-poll:
+github
+https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+leadsonline.ghe.com
+LeadsOnline/nighthawk-tf
+505
+
+pr-poll-registration:
+fm-pr-poll-registration-v2
+ghe-live-505
+github
+https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+leadsonline.ghe.com
+LeadsOnline/nighthawk-tf
+505
+ecf6f3e16f243dcf677a025dbb7b39bfa1f2d8d0e24ad97abc11cd958146d307
+820527122387591c2b17c5888aff4d461ffbd0814542b6e4645abb4f6b40fc61
+2096:3712545
+2096:3712885
+
+=== Scenario 2: armed live merged observation ===
+exit=0
+stdout:
+merged
+
+stderr:
+
+=== Scenario 2: durable merged notification ===
+exit=0
+stdout:
+
+stderr:
+
+Wake queue:
+1792341737	1	check	merged-ghe-live-505-https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505	check: merge landed: ghe-live-505 https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+
+Notification marker:
+fm-pr-poll-merge-notified-v1
+github
+leadsonline.ghe.com
+LeadsOnline/nighthawk-tf
+505
+
+=== Scenario 3: live merge preflight refusal ===
+exit=1
+stdout:
+armed: state/ghe-live-505.check.sh
+
+stderr:
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+fm-contributions: data directory unavailable
+contributions: observation not armed; coverage is unconfirmed
+fm-captain-hold: data directory cannot be resolved: /home/tin/.no-mistakes/worktrees/e8951d61b05b/01M57VPA183NS321E80CVYR61Z/.test-ghe-live-8z9yk_v7/data
+error: could not determine whether task ghe-live-505 is still held for the captain; refusing to merge
+
+
+VERDICT: failed or inconclusive: missing live merged refusal
+
+Real gh invocation trace (only reads allowed):
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json isDraft
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json headRefOid -q .headRefOid
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json state -q .state
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json headRefOid -q .headRefOid
+
+=== Scenario 3 retry: complete scratch home with empty data directory ===
+exit=1
+stdout:
+armed: state/ghe-live-505.check.sh
+
+stderr:
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505
+  - state is "MERGED", not open
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+Real gh invocation trace:
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json headRefOid -q .headRefOid
+GH_HOST=leadsonline.ghe.com gh pr view https://leadsonline.ghe.com/LeadsOnline/nighthawk-tf/pull/505 --json state\,isDraft\,mergeable\,mergeStateStatus\,headRefOid\,baseRefName\,statusCheckRollup
+GH_HOST=leadsonline.ghe.com gh api repos/LeadsOnline/nighthawk-tf/branches/master
+GH_HOST=leadsonline.ghe.com gh api --paginate repos/LeadsOnline/nighthawk-tf/rules/branches/master
+
+FINAL VERDICT: passed
+INFO (no-op): All three selected scenarios ran live read-only against real Enterprise PR 505: registration with API head, merged observation and durable notification, and merge preflight reading state, checks, protection and rules on the recorded host before refusing MERGED state. An actual Enterprise merge remains untested because it requires writing to a real PR. Initial preflight fixture lacked the data directory; adding an empty scratch data directory resolved that setup failure. No product changes required.
